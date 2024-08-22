@@ -25,7 +25,7 @@ SECRET_KEY = "django-insecure-yksk@3qnl==2g8mq+s^i42f6hr4c$r-3n3g%st)13olkmri2xw
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["*"]
 
 
 # Application definition
@@ -37,6 +37,7 @@ INSTALLED_APPS = [
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
+    "mukuruapp"
 ]
 
 MIDDLEWARE = [
