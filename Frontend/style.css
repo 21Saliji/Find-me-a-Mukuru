@@ -11,6 +11,13 @@ body {
     color: white;
 }
 
+.banner-image {
+    width: 100%; /* Ensures the banner stretches across the full width of the container */
+    height: auto; /* Maintains the aspect ratio */
+    margin-bottom: 20px; /* Adds spacing below the banner */
+}
+
+
 /* Landing Page Section */
 .landing-page {
     background-color: #000000;
