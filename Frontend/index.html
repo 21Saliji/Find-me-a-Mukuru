@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Find Me A Mukuru</title>
+    <meta name="description" content="Find your nearest Mukuru Branch or Information Centre. Easily locate branches with our interactive map.">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Landing Page Section -->
+    <header class="landing-page">
+        <nav class="navbar">
+            <div class="logo">FindMeAMukuru</div>
+            <ul class="nav-links">
+                <!-- Add navigation links here if needed -->
+            </ul>
+            <button class="need-help" aria-label="Need Help?">Need Help?</button>
+        </nav>
+        <div class="landing-content">
+            <div class="left-section">
+                <div class="background-image">
+                    <h1>Looking for us?</h1>
+                    <p>Find your nearest Mukuru Branch or Information Centre.</p>
+                </div>
+            </div>
+            <div class="right-section">
+                <div class="filter-options">
+                    <p>I am looking for:</p>
+                    <div class="filter-buttons">
+                        <button>Mukuru Office</button>
+                        <button>Mukuru Booth</button>
+                    </div>
+                </div>
+                <div class="search-bar">
+                    <input type="text" placeholder="Enter your location">
+                    <button aria-label="Search">In this location</button>
+                </div>
+                <div id="map"></div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Chatbot Container -->
+    <div class="chatbot-container">
+        <div class="chatbot-header">
+            <h4>Chat with Us</h4>
+            <button id="close-chatbot">X</button>
+        </div>
+        <div id="chatbot-messages" class="chatbot-messages"></div>
+        <input type="text" id="user-input" placeholder="Type a message..." />
+        <button id="send-btn">Send</button>
+    </div>
+    <button id="chatbot-toggle">Chat</button>
+
+    <!-- Scripts -->
+    <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&callback=initMap" async defer></script>
+    <script src="script.js"></script>
+</body>
+</html>
