@@ -25,16 +25,14 @@
                 </div>
             </div>
             <div class="right-section">
-                <div class="filter-options">
-                    <p>I am looking for:</p>
-                    <div class="filter-buttons">
-                        <button>Mukuru Office</button>
-                        <button>Mukuru Booth</button>
-                    </div>
-                </div>
                 <div class="search-bar">
-                    <input type="text" placeholder="Enter your location">
-                    <button aria-label="Search">In this location</button>
+                    <select id="country-select">
+                        <option value="" disabled selected>Select a country</option> 
+                        <option value="malawi" data-flag="🇲🇼">Malawi 🇲🇼</option>
+                        <option value="zimbabwe" data-flag="🇿🇼">Zimbabwe 🇿🇼</option>
+                        <option value="zambia" data-flag="🇿🇲">Zambia 🇿🇲</option>
+                    </select>
+                    <button aria-label="Search">Search</button>
                 </div>
                 <div id="map"></div>
             </div>
