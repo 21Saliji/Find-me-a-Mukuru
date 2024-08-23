@@ -16,6 +16,84 @@ function handleMapError() {
     alert('Failed to load Google Maps. Please try again later.');
 }
 
+function setupSearchBar() {
+    document.querySelector('.search-bar button').addEventListener('click', () => {
+        const selectElement = document.querySelector('#country-select');
+        const selectedValue = selectElement.value;
+
+        if (selectedValue) {
+            console.log('Selected location:', selectedValue);
+        }
+    });
+}
+document.addEventListener('DOMContentLoaded', setupSearchBar);
+
+if (!window.speechSynthesis) {
+    console.error('SpeechSynthesis not supported');
+    return;
+}
+
+
+function speech() {
+    const dropdown = document.getElementById('country-select');
+
+    if (!dropdown) {
+        console.error('Dropdown element not found!');
+        return;
+    }
+
+    // Check if speech synthesis is supported
+    if (!window.speechSynthesis) {
+        console.error('SpeechSynthesis not supported by this browser.');
+        return;
+    }
+
+    dropdown.addEventListener('change', function() {
+        const selectedOptionText = dropdown.options[dropdown.selectedIndex].text;
+
+        if (!selectedOptionText) {
+            console.error('No text found for the selected option.');
+            return;
+        }
+
+        console.log('Selected option text:', selectedOptionText); // Debugging line
+
+        const utterance = new SpeechSynthesisUtterance(selectedOptionText);
+
+        // Optional: Configure the utterance properties
+        utterance.rate = 1; // Normal speed
+        utterance.pitch = 1; // Default pitch
+        utterance.volume = 1; // Full volume
+
+        // Log utterance being spoken
+        utterance.onstart = () => console.log('Speaking:', selectedOptionText);
+        utterance.onerror = (event) => console.error('Speech synthesis error:', event.error);
+
+        // Speak the text
+        window.speechSynthesis.speak(utterance);
+    });
+}
+
+document.addEventListener('DOMContentLoaded', speech);
+
+
+
+
+
+function help() {
+    const helpButton = document.querySelector('.need-help');
+    
+    if (helpButton) {
+        helpButton.addEventListener('click', function() {
+            window.location.href = 'https://www.mukuru.com/sa/help-support/'; 
+        });
+    } else {
+        console.warn('Element with class "need-help" not found.');
+    }
+}
+document.addEventListener('DOMContentLoaded', help);
+
+
 // Initialize the map
 window.onload = function() {
     if (typeof google !== 'undefined') {
