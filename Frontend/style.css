@@ -150,25 +150,42 @@ body {
     display: flex;
     justify-content: center;
     margin-bottom: 10px;
+    align-items: center; /* Align items vertically */
 }
 
-.search-bar input {
+.search-bar select {
     width: 80%;
     padding: 10px;
     border-radius: 20px 0 0 20px;
     border: none;
     font-size: 14px;
+    appearance: none; /* Remove default dropdown arrow for better styling */
 }
 
 .search-bar button {
     padding: 10px 20px;
     border-radius: 0 20px 20px 0;
     border: none;
-    background-color: #ffdd00;
+    background-color: #F05423;
     color: black;
     cursor: pointer;
     font-size: 14px;
 }
+
+#country-select {
+    width: 80%;
+    padding: 10px;
+    border-radius: 20px 0 0 20px;
+    border: none;
+    font-size: 14px;
+    appearance: none; /* For custom dropdown arrow styling */
+    color: black; /* Ensure text is readable */
+}
+
+#country-select option[disabled] {
+    color: #888; /* Gray color for placeholder text */
+}
+
 
 #map {
     width: 100%;
