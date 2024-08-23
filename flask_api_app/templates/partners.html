@@ -1,0 +1,45 @@
+<!-- templates/partners.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Select Cash Collection Point</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <div class="progress">
+        <div class="progress-bar" style="width: 66%;">Step 2 of 3: Select Collection Point</div>
+    </div>
+
+    <h1>Select Cash Collection Point in {{ country }}</h1>
+    <p>Select a cash collection point from the list below or search by name.</p>
+    <input type="text" id="searchBar" onkeyup="filterPartners()" placeholder="Search for names..">
+    <form action="/get_locations" method="get">
+        <label for="partner">Cash Collection Point:</label>
+        <select name="partner_guid" id="partner" required>
+            {% for partner in partners %}
+                <option value="{{ partner.guid }}">{{ partner.name }}</option>
+            {% endfor %}
+        </select>
+        <button type="submit">Next</button>
+    </form>
+
+    <script>
+        function filterPartners() {
+            var input, filter, options, i;
+            input = document.getElementById('searchBar');
+            filter = input.value.toUpperCase();
+            options = document.getElementById('partner').getElementsByTagName('option');
+            for (i = 0; i < options.length; i++) {
+                txtValue = options[i].textContent || options[i].innerText;
+                if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                    options[i].style.display = "";
+                } else {
+                    options[i].style.display = "none";
+                }
+            }
+        }
+    </script>
+</body>
+</html>
