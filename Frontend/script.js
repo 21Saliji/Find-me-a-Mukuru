@@ -1,14 +1,19 @@
-function initMap() {
-    const map = new google.maps.Map(document.getElementById('map'), {
-        zoom: 14,
-        center: { lat: -33.936, lng: 18.457 }, // Example coordinates for Mowbray, Cape Town
-    });
+// Initialize the map
+let map;
 
-    // Example marker
+function initMap() {
+    map = new google.maps.Map(document.getElementById('map'), {
+        zoom: 14,
+        center: { lat: -33.936, lng: 18.457 }, // Default coordinates
+    });
+}
+
+function updateMap(centerCoordinates, title) {
+    map.setCenter(centerCoordinates);
     new google.maps.Marker({
-        position: { lat: -33.936, lng: 18.457 },
+        position: centerCoordinates,
         map,
-        title: 'Mowbray',
+        title,
     });
 }
 
@@ -17,22 +22,36 @@ function handleMapError() {
 }
 
 function setupSearchBar() {
-    document.querySelector('.search-bar button').addEventListener('click', () => {
+    document.querySelector('.search-bar button').addEventListener('click', async () => {
         const selectElement = document.querySelector('#country-select');
         const selectedValue = selectElement.value;
 
         if (selectedValue) {
             console.log('Selected location:', selectedValue);
+            
+            try {
+                const response = await fetch(`http://127.0.0.1:5000/get_partners?country=${selectedValue}`);
+                if (response.ok) {
+                    const data = await response.json();
+                    if (data.length > 0) {
+                        // Example: Center map on the first partner's location (if available)
+                        const firstPartner = data[0];
+                        updateMap({ lat: parseFloat(firstPartner.latitude), lng: parseFloat(firstPartner.longitude) }, firstPartner.name);
+                    } else {
+                        alert("No partners found for this country.");
+                    }
+                } else {
+                    alert('Failed to fetch partners.');
+                }
+            } catch (error) {
+                console.error('Error fetching partners:', error);
+                alert('Error fetching partners. Please try again later.');
+            }
         }
     });
 }
+
 document.addEventListener('DOMContentLoaded', setupSearchBar);
-
-if (!window.speechSynthesis) {
-    console.error('SpeechSynthesis not supported');
-    return;
-}
-
 
 function speech() {
     const dropdown = document.getElementById('country-select');
@@ -42,7 +61,6 @@ function speech() {
         return;
     }
 
-    // Check if speech synthesis is supported
     if (!window.speechSynthesis) {
         console.error('SpeechSynthesis not supported by this browser.');
         return;
@@ -56,43 +74,35 @@ function speech() {
             return;
         }
 
-        console.log('Selected option text:', selectedOptionText); // Debugging line
+        console.log('Selected option text:', selectedOptionText);
 
         const utterance = new SpeechSynthesisUtterance(selectedOptionText);
+        utterance.rate = 1;
+        utterance.pitch = 1;
+        utterance.volume = 1;
 
-        // Optional: Configure the utterance properties
-        utterance.rate = 1; // Normal speed
-        utterance.pitch = 1; // Default pitch
-        utterance.volume = 1; // Full volume
-
-        // Log utterance being spoken
         utterance.onstart = () => console.log('Speaking:', selectedOptionText);
         utterance.onerror = (event) => console.error('Speech synthesis error:', event.error);
 
-        // Speak the text
         window.speechSynthesis.speak(utterance);
     });
 }
 
 document.addEventListener('DOMContentLoaded', speech);
 
-
-
-
-
 function help() {
     const helpButton = document.querySelector('.need-help');
     
     if (helpButton) {
         helpButton.addEventListener('click', function() {
-            window.location.href = 'https://www.mukuru.com/sa/help-support/'; 
+            window.location.href = 'https://www.mukuru.com/sa/help-support/';
         });
     } else {
         console.warn('Element with class "need-help" not found.');
     }
 }
-document.addEventListener('DOMContentLoaded', help);
 
+document.addEventListener('DOMContentLoaded', help);
 
 // Initialize the map
 window.onload = function() {
