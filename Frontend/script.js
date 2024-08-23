@@ -28,6 +28,7 @@ function setupSearchBar() {
 
         if (selectedValue) {
             console.log('Selected location:', selectedValue);
+<<<<<<< HEAD
             
             try {
                 const response = await fetch(`http://127.0.0.1:5000/get_partners?country=${selectedValue}`);
@@ -47,6 +48,9 @@ function setupSearchBar() {
                 console.error('Error fetching partners:', error);
                 alert('Error fetching partners. Please try again later.');
             }
+=======
+            window.location.href = '/blank-page';
+>>>>>>> 6ccd88d830684ce71ae79af77a584817b2ff6620
         }
     });
 }
