@@ -23,6 +23,7 @@ function setupSearchBar() {
 
         if (selectedValue) {
             console.log('Selected location:', selectedValue);
+            window.location.href = '/blank-page';
         }
     });
 }

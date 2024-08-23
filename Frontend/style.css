@@ -6,27 +6,28 @@
 }
 
 body {
-    font-family: 'Arial', sans-serif;
-    background-color: hsl(32, 100%, 42%);
-    color: white;
+    font-family: 'Roboto', sans-serif;
+    background-color: #f5f5f5;
+    color: #333;
 }
 
+/* Banner Image */
 .banner-image {
-    width: 100%; /* Ensures the banner stretches across the full width of the container */
-    height: auto; /* Maintains the aspect ratio */
-    margin-bottom: 20px; /* Adds spacing below the banner */
+    width: 100%;
+    height: auto;
+    margin-bottom: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
-
 
 /* Landing Page Section */
 .landing-page {
-    background-color: #000000;
-    background-size: cover;
-    background-position: center;
+    background-color: #ffffff;
     height: 100vh;
     display: flex;
     flex-direction: column;
-    color: white;
+    color: #333;
+    padding: 20px;
 }
 
 .navbar {
@@ -34,170 +35,100 @@ body {
     justify-content: space-between;
     align-items: center;
     padding: 20px;
-    background-color: hsl(32, 100%, 42%);
+    background-color: #ff6b00;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
 }
 
 .navbar .logo {
-    font-size: 24px;
+    font-size: 28px;
     font-weight: bold;
-}
-
-.navbar .nav-links {
-    list-style: none;
-    display: flex;
-}
-
-.navbar .nav-links li {
-    margin-left: 20px;
-}
-
-.navbar .nav-links a {
     color: white;
-    text-decoration: none;
-}
-
-.navbar .nav-links a:hover {
-    text-decoration: underline;
 }
 
 .navbar .need-help {
-    background-color: #ffdd00;
-    color: black;
-    padding: 15px 30px;
-    border: none;
-    border-radius: 10px;
+    background-color: white;
+    color: #ff6b00;
+    padding: 10px 20px;
+    border-radius: 5px;
     font-size: 16px;
     font-weight: bold;
     cursor: pointer;
-    transition: transform 0.3s ease;
+    transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 .navbar .need-help:hover {
-    transform: scale(1.05);
-    background-color: #ffd700;
+    background-color: #ff6b00;
+    color: white;
 }
 
 .landing-content {
     display: flex;
     flex: 1;
-    padding: 20px;
+    margin-top: 20px;
+    gap: 20px;
 }
 
 .left-section {
     flex: 1;
-    background-color: #737573;
-    padding: 15px;
+    background-color: #f0f0f0;
+    padding: 20px;
+    border-radius: 10px;
 }
 
 .background-image {
     background-image: url('Logo.png');
-    background-size: cover;
+    background-size: contain;
     background-position: center;
+    background-repeat: no-repeat;
     height: 100%;
-    color: white;
-    padding: 20px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-}
-
-.background-image h1 {
-    font-size: 48px;
-    margin-bottom: 10px;
-    justify-content: center;
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-}
-
-.background-image p {
-    font-size: 18px;
-    justify-content: center;
-    font-family: Arial, Helvetica, sans-serif;
 }
 
 .right-section {
     flex: 2;
-    background-color: #ccc;
-    padding: 15px;
-    display: flex;
-    flex-direction: column;
-}
-
-.filter-options {
-    margin-bottom: 10px;
-}
-
-.filter-options p {
-    font-size: 16px;
-    font-weight: bold;
-    margin-bottom: 5px;
-}
-
-.filter-buttons {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 10px;
-    margin-bottom: 20px;
-}
-
-.filter-buttons button {
-    background-color: #000000;
-    color: white;
-    border: none;
-    padding: 10px 20px;
-    border-radius: 20px;
-    cursor: pointer;
-    font-size: 14px;
-}
-
-.filter-buttons button:hover {
-    background-color: #3a3a5a;
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 .search-bar {
     display: flex;
-    justify-content: center;
-    margin-bottom: 10px;
-    align-items: center; /* Align items vertically */
+    justify-content: space-between;
+    margin-bottom: 20px;
+    align-items: center;
 }
 
 .search-bar select {
-    width: 80%;
+    width: 70%;
     padding: 10px;
-    border-radius: 20px 0 0 20px;
-    border: none;
-    font-size: 14px;
-    appearance: none; /* Remove default dropdown arrow for better styling */
+    border-radius: 5px 0 0 5px;
+    border: 1px solid #ccc;
+    font-size: 16px;
 }
 
 .search-bar button {
-    padding: 10px 20px;
-    border-radius: 0 20px 20px 0;
-    border: none;
-    background-color: #F05423;
-    color: black;
-    cursor: pointer;
-    font-size: 14px;
-}
-
-#country-select {
-    width: 80%;
+    width: 30%;
     padding: 10px;
-    border-radius: 20px 0 0 20px;
+    border-radius: 0 5px 5px 0;
     border: none;
-    font-size: 14px;
-    appearance: none; /* For custom dropdown arrow styling */
-    color: black; /* Ensure text is readable */
+    background-color: #ff6b00;
+    color: white;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
 }
 
-#country-select option[disabled] {
-    color: #888; /* Gray color for placeholder text */
+.search-bar button:hover {
+    background-color: #e65c00;
 }
-
 
 #map {
     width: 100%;
-    height: 300px;
-    background-color: #ccc;
+    height: 400px;
+    background-color: #e5e5e5;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 /* Responsive Design */
@@ -208,12 +139,16 @@ body {
 
     .left-section,
     .right-section {
-        flex: none;
         width: 100%;
+        margin-bottom: 20px;
     }
 
-    .search-bar input {
-        width: 100%;
+    .search-bar select {
+        width: 70%;
+    }
+
+    .search-bar button {
+        width: 30%;
     }
 }
 
@@ -225,7 +160,7 @@ body {
     bottom: 0;
     right: 20px;
     background-color: white;
-    border: 2px solid hsl(32, 100%, 42%);
+    border: 2px solid #ff6b00;
     border-radius: 15px 15px 0 0;
     box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
     display: none;
@@ -233,7 +168,7 @@ body {
 }
 
 .chatbot-header {
-    background-color: hsl(32, 100%, 42%);
+    background-color: #ff6b00;
     color: white;
     padding: 12px;
     display: flex;
@@ -246,6 +181,8 @@ body {
     flex: 1;
     padding: 12px;
     overflow-y: auto;
+    background-color: #f9f9f9;
+    border-top: 1px solid #ccc;
 }
 
 .chatbot-messages div {
@@ -256,12 +193,12 @@ body {
 }
 
 .user-message {
-    background-color: #f1f1f1;
+    background-color: #d1e7dd;
     align-self: flex-end;
 }
 
 .bot-message {
-    background-color: #ffe4b3;
+    background-color: #e7f1ff;
     align-self: flex-start;
 }
 
@@ -270,48 +207,33 @@ input[type="text"] {
     padding: 10px;
     border: 1px solid #ccc;
     border-radius: 8px;
+    margin: 12px 0;
 }
 
 button {
-    background-color: hsl(32, 100%, 42%);
+    background-color: #ff6b00;
     color: white;
     border: none;
     padding: 10px 14px;
     border-radius: 8px;
     cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
 }
 
 button#chatbot-toggle {
     position: fixed;
     bottom: 20px;
     right: 20px;
-    background-color: hsl(32, 100%, 42%);
+    background-color: #ff6b00;
     color: white;
     border-radius: 20px;
     padding: 12px 20px;
     font-size: 16px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
     cursor: pointer;
-}
-
-button#close-chatbot {
-    background-color: transparent;
-    color: white;
-    font-size: 18px;
-    border: none;
-    cursor: pointer;
-}
-
-/* Unique Design - Chatbot Toggle Button */
-button#chatbot-toggle {
-    font-family: 'Arial', sans-serif;
-    font-size: 18px;
-    font-weight: bold;
-    border: 2px solid white;
-    transition: transform 0.3s ease, background-color 0.3s ease;
+    transition: background-color 0.3s ease, transform 0.3s ease;
 }
 
 button#chatbot-toggle:hover {
-    background-color: #ff944d;
-    transform: scale(1.1) rotate(-5deg);
+    background-color: #e65c00;
 }
